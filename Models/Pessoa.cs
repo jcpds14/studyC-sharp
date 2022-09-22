@@ -10,10 +10,10 @@ namespace ExemploExplorando.Models
         private string _nome;//private só é permitido acessar dentro da própria classe, não acessíveis externamete.
         private int _idade;
         public string Nome //public sig. que qualquer um pode acessar esta propriedade
-        //get obtem valor, set atribui valor
-        { 
+        
+        { //get obtem valor
             get => _nome.ToUpper();//utilizar => ao invés de return quando tivermos apenas um valor(body expressions)
-                        
+            //set atribui valor       
             set
             {
                 if (value == "")
@@ -24,7 +24,9 @@ namespace ExemploExplorando.Models
             }
             
         }
-        public int Idade 
+        public string Sobrenome { get; set; }
+        public string NomeCompleto => $"{Nome} {Sobrenome}".ToUpper();
+        public int Idade
         { 
             get => _idade; 
             
@@ -41,7 +43,7 @@ namespace ExemploExplorando.Models
 
         public void Apresentar()
         {
-            Console.WriteLine($"Nome: {Nome}, Idade: {Idade}");//exemplo de get
+            Console.WriteLine($"Nome: {NomeCompleto}, Idade: {Idade}");//exemplo de get
         }
     }
 }
