@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace ExemploExplorando.Models
 {
-    public class Pessoa
+    public class Pessoa //public sig. que qualquer um pode acessar esta classe
     {
-        private string _nome;
+        private string _nome;//private só é permitido acessar dentro da própria classe, não acessíveis externamete.
         private int _idade;
-        public string Nome 
+        public string Nome //public sig. que qualquer um pode acessar esta propriedade
         //get obtem valor, set atribui valor
         { 
             get => _nome.ToUpper();//utilizar => ao invés de return quando tivermos apenas um valor(body expressions)
