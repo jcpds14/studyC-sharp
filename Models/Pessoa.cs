@@ -7,6 +7,16 @@ namespace ExemploExplorando.Models
 {
     public class Pessoa //public sig. que qualquer um pode acessar esta classe
     {
+        public Pessoa()//construtor, deve ter o mesmo nome da classe. Pode ser vazio ou receber parametros. Esse está sem parametro pois nem sempre o vamos ter um valor descrito. mas o ideal é colocar parametros nos construtores.
+        {
+
+        }
+        public Pessoa(string nome, string sobrenome) //construtor
+        {
+            //os valores recebidos no construtor vão para onde vou definir abaixo
+            Nome = nome;//equivale a propriedade Nome, logo abaixo
+            Sobrenome = sobrenome;// equivale a propriedade Sobrenome, abaixo da propriedade Nome
+        }
         private string _nome;//private só é permitido acessar dentro da própria classe, não acessíveis externamete.
         private int _idade;
         public string Nome //public sig. que qualquer um pode acessar esta propriedade
