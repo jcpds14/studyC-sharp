@@ -8,6 +8,7 @@ namespace ExemploExplorando.Models
     public class Curso
     {
         public string Nome { get; set; }
+        public decimal Valor { get; set; }
         public List<Pessoa> Alunos { get; set; }//Lista é uma coleção de um determinado tipo (<Pessoa> neste caso)
 
         public void AdicionarAluno(Pessoa aluno)//void = vazio, ou seja não retorna nada
@@ -29,6 +30,7 @@ namespace ExemploExplorando.Models
 
         public void ListarAlunos()
         {
+            Console.WriteLine($"Valor do curso de {Nome}: {Valor:C2}");//convertendo numeração para moeda, 2 é o número de casas decimais
             Console.WriteLine($"Alunos do curso de: {Nome}");
 
             for (int count = 0; count < Alunos.Count; count++)
