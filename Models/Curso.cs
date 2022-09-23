@@ -20,5 +20,20 @@ namespace ExemploExplorando.Models
             //chegou ao fim do método e ele vai me retornar o que eu definir
             return quantidade;
         }
+
+        public bool RemoverAluno(Pessoa aluno)
+        {
+            return Alunos.Remove(aluno);
+            
+        }
+
+        public void ListarAlunos()
+        {
+            Console.WriteLine($"Alunos do curso de: {Nome}");
+            foreach (Pessoa aluno in Alunos)
+            {
+                Console.WriteLine(aluno.NomeCompleto);
+            }
+        }
     }
 }
