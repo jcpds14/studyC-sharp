@@ -2,6 +2,31 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
+new ExemploException().Metodo1();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 try
 {
     string[] linhas = File.ReadAllLines("Arquivos/arquivoLeitura.txt");
@@ -31,26 +56,6 @@ finally // útil para por exemplo fechar conexão, independente se der erro ou n
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 string dataString = "2022-04-170";
 
 bool sucesso = DateTime.TryParseExact(
