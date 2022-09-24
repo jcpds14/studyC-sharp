@@ -2,28 +2,38 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-//STACK - PILHA
-Stack<int> pilha = new Stack<int>();
-pilha.Push(4);//insere um objeto no topo da pilha
-pilha.Push(6);
-pilha.Push(8);
-pilha.Push(10);
-//! Diferente da fila(Queue) a pilha(Stack) quem fica em primeiro é quem entrou por último (Como uma pilha de roupa)
+Dictionary<string, string> estados = new Dictionary<string, string>();// Primeiro elemento do Dictionary(chave(key)) deve ser único, senão vai dar uma exceção. O segundo elemento pode se repetir.
 
-foreach(int item in pilha)
+estados.Add("BA", "Bahia");//Adicionando elementos ao Dictionary
+estados.Add("SP", "São Paulo");
+estados.Add("MG", "Minas Gerais");
+
+foreach (var item in estados)
 {
-    Console.WriteLine(item);
+    Console.WriteLine($"Chave: {item.Key}, Valor: {item.Value}");
 }
 
-Console.WriteLine($"Removendo o elemento do topo: {pilha.Pop()} \n");
+Console.WriteLine($"\n Removendo estado BA e alterando valor de SP \n");
+estados.Remove("BA");
+estados["SP"] = "São Paulo - valor alterado";
 
-foreach(int item in pilha)
+foreach (var item in estados)
 {
-    Console.WriteLine(item);
+    Console.WriteLine($"Chave: {item.Key}, Valor: {item.Value}");
 }
 
+string chave = "BA";
 
+Console.WriteLine($"\nVerificando a chave: {chave}");
 
+if (estados.ContainsKey(chave))
+{
+    Console.WriteLine($"Valor existente, não é seguro adicionar a chave: {chave}");
+}
+else
+{
+    Console.WriteLine($"Valor não existente, é seguro adicionar a chave: {chave}");
+}
 
 
 
@@ -32,6 +42,29 @@ foreach(int item in pilha)
 
 
 /*
+//!STACK PILHA
+Stack<int> pilha = new Stack<int>();
+pilha.Push(4);//insere um objeto no topo da pilha
+pilha.Push(6);
+pilha.Push(8);
+pilha.Push(10);
+//! Diferente da fila(Queue) a pilha(Stack) quem fica em primeiro é quem entrou por último (Como uma pilha de roupa)
+
+foreach (int item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine($"Removendo o elemento do topo: {pilha.Pop()} \n");
+
+foreach (int item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+
+
+
 Queue<int> fila = new Queue<int>();//FIFO (first in first out)
 fila.Enqueue(6);//adiciona um elemnto na fila
 fila.Enqueue(3);
