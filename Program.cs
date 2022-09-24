@@ -2,11 +2,24 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-new ExemploException().Metodo1();
+Queue<int> fila = new Queue<int>();
+fila.Enqueue(6);//adiciona um elemnto na fila
+fila.Enqueue(3);
+fila.Enqueue(90);
+fila.Enqueue(45);
 
+foreach(int item in fila)
+{
+    Console.WriteLine(item);
+}
 
+Console.WriteLine($"Removendo o elemento: {fila.Dequeue()}\n");// fila.Dequeue(); Vai remover SEMPRE o primeiro elemento da fila
+fila.Enqueue(30);
 
-
+foreach(int item in fila)
+{
+    Console.WriteLine(item);
+}
 
 
 
@@ -27,6 +40,11 @@ new ExemploException().Metodo1();
 
 
 /*
+new ExemploException().Metodo1();
+
+
+
+
 try
 {
     string[] linhas = File.ReadAllLines("Arquivos/arquivoLeitura.txt");
