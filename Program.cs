@@ -2,33 +2,25 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-Queue<int> fila = new Queue<int>();
-fila.Enqueue(6);//adiciona um elemnto na fila
-fila.Enqueue(3);
-fila.Enqueue(90);
-fila.Enqueue(45);
+//STACK - PILHA
+Stack<int> pilha = new Stack<int>();
+pilha.Push(4);//insere um objeto no topo da pilha
+pilha.Push(6);
+pilha.Push(8);
+pilha.Push(10);
+//! Diferente da fila(Queue) a pilha(Stack) quem fica em primeiro é quem entrou por último (Como uma pilha de roupa)
 
-foreach(int item in fila)
+foreach(int item in pilha)
 {
     Console.WriteLine(item);
 }
 
-Console.WriteLine($"Removendo o elemento: {fila.Dequeue()}\n");// fila.Dequeue(); Vai remover SEMPRE o primeiro elemento da fila
-fila.Enqueue(30);
+Console.WriteLine($"Removendo o elemento do topo: {pilha.Pop()} \n");
 
-foreach(int item in fila)
+foreach(int item in pilha)
 {
     Console.WriteLine(item);
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -40,6 +32,27 @@ foreach(int item in fila)
 
 
 /*
+Queue<int> fila = new Queue<int>();//FIFO (first in first out)
+fila.Enqueue(6);//adiciona um elemnto na fila
+fila.Enqueue(3);
+fila.Enqueue(90);
+fila.Enqueue(45);
+
+foreach(int item in fila)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine($"Removendo o elemento: {fila.Dequeue()}\n");// fila.Dequeue(); Vai remover SEMPRE o primeiro elemento que entrou na fila
+
+foreach(int item in fila)
+{
+    Console.WriteLine(item);
+}
+
+
+
+
 new ExemploException().Metodo1();
 
 
