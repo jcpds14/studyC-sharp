@@ -2,6 +2,68 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
+LeituraArquivo arquivo = new LeituraArquivo();
+
+var (sucesso, linhasArquivo, quantidadeLinhas) = arquivo.LerArquivo("Arquivos/arquivoLeitura.txt");
+
+if(sucesso)
+{
+    Console.WriteLine("Quantidade de linhas no arquivo: " + quantidadeLinhas);
+    foreach(string linha in linhasArquivo)
+    {
+        Console.WriteLine(linha);
+    }
+}
+else
+{
+    Console.WriteLine("Não foi possível ler o arquivo.");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//!TUPLAS
+(int Id, string Nome, string Sobrenome, decimal Altura) tupla = (1, "Jean", "Carlos", 1.90M);//Forma mais indicada pelo simples motivo de legibilidade
+//*Outras Sintaxes de tupla
+/*ValueTuple<int, string, string, decimal> outroExemploTupla = (2, "Jamile", "Velame", 1.60M);//Passa o tipo sem nomear os dados
+var outroExemploTuplaCreate = Tuple.Create(1, "Jean", "Carlos", 1.90M);//automaticamente identifica o tipo
+
+
+Console.WriteLine($"Id: {tupla.Item1}");
+Console.WriteLine($"Nome: {tupla.Item2}");
+Console.WriteLine($"Sobrenome: {tupla.Item3}");
+Console.WriteLine($"Altura: {tupla.Item4}");
+
+
+
+
+//! DICTIONARY
 Dictionary<string, string> estados = new Dictionary<string, string>();// Primeiro elemento do Dictionary(chave(key)) deve ser único, senão vai dar uma exceção. O segundo elemento pode se repetir.
 
 estados.Add("BA", "Bahia");//Adicionando elementos ao Dictionary
@@ -38,10 +100,6 @@ else
 
 
 
-
-
-
-/*
 //!STACK PILHA
 Stack<int> pilha = new Stack<int>();
 pilha.Push(4);//insere um objeto no topo da pilha
@@ -91,7 +149,7 @@ new ExemploException().Metodo1();
 
 
 
-try
+try //afeta muito a performance, deve ser utilizado somente em casos que você não tem controle, como acessar um arquivo por exemplo
 {
     string[] linhas = File.ReadAllLines("Arquivos/arquivoLeitura.txt");
 
@@ -178,5 +236,4 @@ cursoDeIngles.Alunos = new List<Pessoa>();
 cursoDeIngles.AdicionarAluno(p1);
 cursoDeIngles.AdicionarAluno(p2);
 cursoDeIngles.ListarAlunos();
-
 */
