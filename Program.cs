@@ -2,24 +2,11 @@
 using System.Globalization;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-LeituraArquivo arquivo = new LeituraArquivo();
+Pessoa p1 = new Pessoa("Jean", "Carlos");
 
-var (sucesso, linhasArquivo, quantidadeLinhas) = arquivo.LerArquivo("Arquivos/arquivoLeitura.txt");
+(string nome, string sobrenome) = p1;
 
-if(sucesso)
-{
-    Console.WriteLine("Quantidade de linhas no arquivo: " + quantidadeLinhas);
-    foreach(string linha in linhasArquivo)
-    {
-        Console.WriteLine(linha);
-    }
-}
-else
-{
-    Console.WriteLine("Não foi possível ler o arquivo.");
-}
-
-
+Console.WriteLine($"{nome} {sobrenome}");
 
 
 
@@ -48,6 +35,41 @@ else
 
 
 /*
+
+
+
+
+
+//!IF ternário
+int numero = 10;
+bool ehPar = false;
+
+ehPar = numero % 2 == 0;
+Console.WriteLine($"O número {numero} é " + (ehPar ? "par" : "ímpar"));
+
+
+
+
+LeituraArquivo arquivo = new LeituraArquivo();
+
+var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/arquivoLeitura.txt");//_ na tupla vai descartar esta variável. Serve para o caso de vc não precisar desta informação.
+
+if(sucesso)
+{
+    //Console.WriteLine("Quantidade de linhas no arquivo: " + quantidadeLinhas); //!É O _ ACIMA
+    foreach(string linha in linhasArquivo)
+    {
+        Console.WriteLine(linha);
+    }
+}
+else
+{
+    Console.WriteLine("Não foi possível ler o arquivo.");
+}
+
+
+
+
 //!TUPLAS
 (int Id, string Nome, string Sobrenome, decimal Altura) tupla = (1, "Jean", "Carlos", 1.90M);//Forma mais indicada pelo simples motivo de legibilidade
 //*Outras Sintaxes de tupla

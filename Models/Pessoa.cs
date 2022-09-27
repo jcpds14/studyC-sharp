@@ -11,11 +11,17 @@ namespace ExemploExplorando.Models
         {
 
         }
+        
         public Pessoa(string nome, string sobrenome) //construtor
         {
             //os valores recebidos no construtor vão para onde vou definir abaixo
             Nome = nome;//equivale a propriedade Nome, logo abaixo
             Sobrenome = sobrenome;// equivale a propriedade Sobrenome, abaixo da propriedade Nome
+        }
+        public void Deconstruct(out string nome, out string sobrenome)//Vai realizar uma separação dos meus objetos em variáveis distintas.
+        {
+            nome = Nome;
+            sobrenome = Sobrenome;
         }
         private string _nome;//private só é permitido acessar dentro da própria classe, não acessíveis externamete.
         private int _idade;
