@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JJ\\jean\\jean\\workspace\\dio\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj": {}
+    "C:\\Users\\JJ\\Jean\\jEAN\\workspace\\DIO\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JJ\\jean\\jean\\workspace\\dio\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj": {
+    "C:\\Users\\JJ\\Jean\\jEAN\\workspace\\DIO\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JJ\\jean\\jean\\workspace\\dio\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj",
+        "projectUniqueName": "C:\\Users\\JJ\\Jean\\jEAN\\workspace\\DIO\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj",
         "projectName": "ExemploExplorando",
-        "projectPath": "C:\\Users\\JJ\\jean\\jean\\workspace\\dio\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj",
+        "projectPath": "C:\\Users\\JJ\\Jean\\jEAN\\workspace\\DIO\\dotnet\\ExemploExplorando\\ExemploExplorando.csproj",
         "packagesPath": "C:\\Users\\JJ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JJ\\jean\\jean\\workspace\\dio\\dotnet\\ExemploExplorando\\obj\\",
+        "outputPath": "C:\\Users\\JJ\\Jean\\jEAN\\workspace\\DIO\\dotnet\\ExemploExplorando\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

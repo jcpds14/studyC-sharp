@@ -1,16 +1,14 @@
 ﻿using ExemploExplorando.Models;
 using System.Globalization;
+using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-Pessoa p1 = new Pessoa("Jean", "Carlos");
+//!APLICANDO JSON
+Venda v1 = new Venda(1, "Material de Escritório", 25.00M);//objeto
 
-(string nome, string sobrenome) = p1;
+string serializado = JsonConvert.SerializeObject(v1, Formatting.Indented);
 
-Console.WriteLine($"{nome} {sobrenome}");
-
-
-
-
+Console.WriteLine(serializado);
 
 
 
@@ -35,7 +33,11 @@ Console.WriteLine($"{nome} {sobrenome}");
 
 
 /*
+Pessoa p1 = new Pessoa("Jean", "Carlos");
 
+(string nome, string sobrenome) = p1;
+
+Console.WriteLine($"{nome} {sobrenome}");
 
 
 
@@ -52,11 +54,11 @@ Console.WriteLine($"O número {numero} é " + (ehPar ? "par" : "ímpar"));
 
 LeituraArquivo arquivo = new LeituraArquivo();
 
-var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/arquivoLeitura.txt");//_ na tupla vai descartar esta variável. Serve para o caso de vc não precisar desta informação.
+var (sucesso, linhasArquivo, _) = arquivo.LerArquivo("Arquivos/arquivoLeitura.txt");//_(Descartes) na tupla vai descartar esta variável. Serve para o caso de vc não precisar desta informação.
 
 if(sucesso)
 {
-    //Console.WriteLine("Quantidade de linhas no arquivo: " + quantidadeLinhas); //!É O _ ACIMA
+    //Console.WriteLine("Quantidade de linhas no arquivo: " + quantidadeLinhas); //!É O _(Descartes) ACIMA
     foreach(string linha in linhasArquivo)
     {
         Console.WriteLine(linha);
