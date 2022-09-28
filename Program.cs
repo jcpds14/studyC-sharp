@@ -3,13 +3,15 @@ using System.Globalization;
 using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-string conteudoArquivoVendasClienteX = File.ReadAllText("Arquivos/vendas.json");
+bool? desejaReceberEmail = true;
 
-List<Vendas> listaVendasClienteX = JsonConvert.DeserializeObject<List<Vendas>>(conteudoArquivoVendasClienteX);
-
-foreach(Vendas vendas in listaVendasClienteX)
+if(desejaReceberEmail.HasValue && desejaReceberEmail.Value)//sempre que for do tipo nulo precisamos adicionar HasValue para fazer uma verificação se o valor é diferente de nulo, e Value para coletar este valor. Value é no caso de certeza que tem um valor. HasValue diz que talvez não tenha um valor então não vai retornar uma execeção ou pode ser aplicado também != null (neste exemplo: if(desejaReceberEmail != null && desejaReceberEmail.Value) ), vai funcionar do mesmo jeito do HasValue.
 {
-    Console.WriteLine($"Id: {vendas.Id}, Produto: {vendas.Produto}, Preço: {vendas.Valor}, Data: {vendas.DataVenda}");
+    Console.WriteLine("Optou por receber E-mail");
+}
+else
+{
+    Console.WriteLine("Optou por não receber E-mail ou não respondeu");
 }
 
 
@@ -30,7 +32,26 @@ foreach(Vendas vendas in listaVendasClienteX)
 
 
 
+
+
+
+
+
+
 /*
+string conteudoArquivoVendasClienteX = File.ReadAllText("Arquivos/vendas.json");
+
+List<Vendas> listaVendasClienteX = JsonConvert.DeserializeObject<List<Vendas>>(conteudoArquivoVendasClienteX);
+
+foreach(Vendas vendas in listaVendasClienteX)
+{
+    Console.WriteLine($"Id: {vendas.Id}, Produto: {vendas.Produto}, Preço: {vendas.Valor}, Data: {vendas.DataVenda}");
+}
+
+
+
+
+
 //!APLICANDO JSON
 //https://codebeautify.org/jsonviewer SITE PARA MAPEAR E CONVERTER ARQUIVOS JSON
 List<Venda> listaVenda = new List<Venda>();
