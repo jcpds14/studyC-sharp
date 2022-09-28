@@ -4,10 +4,11 @@ using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
 //!APLICANDO JSON
+//https://codebeautify.org/jsonviewer SITE PARA MAPEAR E CONVERTER ARQUIVOS JSON
 List<Venda> listaVenda = new List<Venda>();
 
-Venda v1 = new Venda(1, "Material de Escritório", 25.00M);//objeto
-Venda v2 = new Venda(2, "Licença de Software", 110.00M);//objeto
+Venda v1 = new Venda(1, "Material de Escritório", 25.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
+Venda v2 = new Venda(2, "Licença de Software", 110.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
 
 listaVenda.Add(v1);
 listaVenda.Add(v2);

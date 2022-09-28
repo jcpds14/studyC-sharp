@@ -2,11 +2,13 @@
   {
     "Id": 1,
     "Produto": "Material de Escritório",
-    "Valor": 25.00
+    "Valor": 25.00,
+    "DataVenda": "2022-09-28T05:40:52.9348906-03:00"
   },
   {
     "Id": 2,
     "Produto": "Licença de Software",
-    "Valor": 110.00
+    "Valor": 110.00,
+    "DataVenda": "2022-09-28T05:40:52.9428878-03:00"
   }
 ]
