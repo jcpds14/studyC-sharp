@@ -4,9 +4,15 @@ using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
 //!APLICANDO JSON
-Venda v1 = new Venda(1, "Material de Escritório", 25.00M);//objeto
+List<Venda> listaVenda = new List<Venda>();
 
-string serializado = JsonConvert.SerializeObject(v1, Formatting.Indented);
+Venda v1 = new Venda(1, "Material de Escritório", 25.00M);//objeto
+Venda v2 = new Venda(2, "Licença de Software", 110.00M);//objeto
+
+listaVenda.Add(v1);
+listaVenda.Add(v2);
+
+string serializado = JsonConvert.SerializeObject(listaVenda, Formatting.Indented);
 
 File.WriteAllText("Arquivos/vendas.json", serializado);
 
