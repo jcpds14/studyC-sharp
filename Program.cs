@@ -8,6 +8,8 @@ Venda v1 = new Venda(1, "Material de Escritório", 25.00M);//objeto
 
 string serializado = JsonConvert.SerializeObject(v1, Formatting.Indented);
 
+File.WriteAllText("Arquivos/vendas.json", serializado);
+
 Console.WriteLine(serializado);
 
 
