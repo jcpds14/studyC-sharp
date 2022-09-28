@@ -3,25 +3,14 @@ using System.Globalization;
 using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-//!APLICANDO JSON
-//https://codebeautify.org/jsonviewer SITE PARA MAPEAR E CONVERTER ARQUIVOS JSON
-List<Venda> listaVenda = new List<Venda>();
+string conteudoArquivoVendasClienteX = File.ReadAllText("Arquivos/vendas.json");
 
-Venda v1 = new Venda(1, "Material de Escritório", 25.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
-Venda v2 = new Venda(2, "Licença de Software", 110.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
+List<Vendas> listaVendasClienteX = JsonConvert.DeserializeObject<List<Vendas>>(conteudoArquivoVendasClienteX);
 
-listaVenda.Add(v1);
-listaVenda.Add(v2);
-
-string serializado = JsonConvert.SerializeObject(listaVenda, Formatting.Indented);
-
-File.WriteAllText("Arquivos/vendas.json", serializado);
-
-Console.WriteLine(serializado);
-
-
-
-
+foreach(Vendas vendas in listaVendasClienteX)
+{
+    Console.WriteLine($"Id: {vendas.Id}, Produto: {vendas.Produto}, Preço: {vendas.Valor}, Data: {vendas.DataVenda}");
+}
 
 
 
@@ -42,6 +31,25 @@ Console.WriteLine(serializado);
 
 
 /*
+//!APLICANDO JSON
+//https://codebeautify.org/jsonviewer SITE PARA MAPEAR E CONVERTER ARQUIVOS JSON
+List<Venda> listaVenda = new List<Venda>();
+
+Venda v1 = new Venda(1, "Material de Escritório", 25.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
+Venda v2 = new Venda(2, "Licença de Software", 110.00M, DateTime.Now);//objeto //ISO 8601 padrodiniza o formato de data
+
+listaVenda.Add(v1);
+listaVenda.Add(v2);
+
+string serializado = JsonConvert.SerializeObject(listaVenda, Formatting.Indented);
+
+File.WriteAllText("Arquivos/vendas.json", serializado);
+
+Console.WriteLine(serializado);
+
+
+
+
 Pessoa p1 = new Pessoa("Jean", "Carlos");
 
 (string nome, string sobrenome) = p1;

@@ -5,16 +5,8 @@ using System.Threading.Tasks;
 
 namespace ExemploExplorando.Models
 {
-    public class Venda
+    public class Vendas
     {
-        public Venda(int id, string produto, decimal valor, DateTime dataVenda)
-        {
-            Id = id;
-            Produto = produto;
-            Valor = valor;
-            DataVenda = dataVenda;
-        }
-        
         public int Id { get; set; }
         public string Produto { get; set; }
         public decimal Valor { get; set; }
