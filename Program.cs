@@ -3,20 +3,6 @@ using System.Globalization;
 using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
-bool? desejaReceberEmail = true;
-
-if(desejaReceberEmail.HasValue && desejaReceberEmail.Value)//sempre que for do tipo nulo precisamos adicionar HasValue para fazer uma verificação se o valor é diferente de nulo, e Value para coletar este valor. Value é no caso de certeza que tem um valor. HasValue diz que talvez não tenha um valor então não vai retornar uma execeção ou pode ser aplicado também != null (neste exemplo: if(desejaReceberEmail != null && desejaReceberEmail.Value) ), vai funcionar do mesmo jeito do HasValue.
-{
-    Console.WriteLine("Optou por receber E-mail");
-}
-else
-{
-    Console.WriteLine("Optou por não receber E-mail ou não respondeu");
-}
-
-
-
-
 
 
 
@@ -39,13 +25,67 @@ else
 
 
 /*
+//Variável dinâmica pode assumir vários tipos independente do valor, muito útil para valores dinâmicos. Porém deve ser usado com cuidado, pois se colocar o tipo errado, pode receber uma exceção.
+
+dynamic variavelDinamica = 4;
+
+Console.WriteLine($"Tipo da variável: {variavelDinamica.GetType()}, valor da variável: {variavelDinamica}");
+
+variavelDinamica = "Texto";
+
+Console.WriteLine($"Tipo da variável: {variavelDinamica.GetType()}, valor da variável: {variavelDinamica}");
+
+variavelDinamica = true;
+
+Console.WriteLine($"Tipo da variável: {variavelDinamica.GetType()}, valor da variável: {variavelDinamica}");
+
+
+
+
+//!TIPO ANÔNIMO
+//É muito comoum ser usado como retorno de uma coleção. Não pode ser atribuído métodos a ele.
+var tipoAnonimo = new { Nome = "Jean", Sobrenome = "Carlos", Altura = 1.90 };
+
+Console.WriteLine("Nome: " + tipoAnonimo.Nome);
+Console.WriteLine("Sobrenome: " + tipoAnonimo.Sobrenome);
+Console.WriteLine("Altura: " + tipoAnonimo.Altura);
+
+//Lista anônima em coleção
+string conteudoArquivo = File.ReadAllText("Arquivos/vendas.json");
+
+List<Vendas> listaVenda = JsonConvert.DeserializeObject<List<Vendas>>(conteudoArquivo);
+
+var listaAnonimo = listaVenda.Select(x => new { x.Produto, x.Valor });
+
+foreach (var venda in listaAnonimo)
+{
+    Console.WriteLine($"Produto: {venda.Produto}, Preço: {venda.Valor}");
+}
+
+
+
+
+bool? desejaReceberEmail = true;
+
+if(desejaReceberEmail.HasValue && desejaReceberEmail.Value)//sempre que for do tipo nulo precisamos adicionar HasValue para fazer uma verificação se o valor é diferente de nulo, e Value para coletar este valor. Value é no caso de certeza que tem um valor. HasValue diz que talvez não tenha um valor então não vai retornar uma execeção ou pode ser aplicado também != null (neste exemplo: if(desejaReceberEmail != null && desejaReceberEmail.Value) ), vai funcionar do mesmo jeito do HasValue.
+{
+    Console.WriteLine("Optou por receber E-mail");
+}
+else
+{
+    Console.WriteLine("Optou por não receber E-mail ou não respondeu");
+}
+
+
+
+
 string conteudoArquivoVendasClienteX = File.ReadAllText("Arquivos/vendas.json");
 
 List<Vendas> listaVendasClienteX = JsonConvert.DeserializeObject<List<Vendas>>(conteudoArquivoVendasClienteX);
 
 foreach(Vendas vendas in listaVendasClienteX)
 {
-    Console.WriteLine($"Id: {vendas.Id}, Produto: {vendas.Produto}, Preço: {vendas.Valor}, Data: {vendas.DataVenda}");
+    Console.WriteLine($"Id: {vendas.Id}, Produto: {vendas.Produto}, Preço: {vendas.Valor}, Data: {vendas.DataVenda}{(vendas.Desconto.HasValue ? $", Desconto de: {vendas.Desconto} Total: {vendas.Valor - vendas.Desconto}" : "")}");
 }
 
 

@@ -16,5 +16,6 @@ namespace ExemploExplorando.Models
 
         public decimal Valor { get; set; }
         public DateTime DataVenda { get; set; }
+        public decimal? Desconto { get; set; }
     }
 }
