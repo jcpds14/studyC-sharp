@@ -3,16 +3,12 @@ using System.Globalization;
 using Newtonsoft.Json;
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar todo sistema para esta localizão (Moedas serão formatadas para este local)
 
+int numero = 13;
+bool par = false;
 
+par = numero.EhPar();
 
-
-
-
-
-
-
-
-
+Console.WriteLine("O número: " + numero + " é " + (par ? "par" : "ímpar"));
 
 
 
