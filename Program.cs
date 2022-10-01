@@ -24,7 +24,29 @@ CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");//Vai alterar
 
 
 
+
+
+
+
+
 /*
+//! ARRAY PARA CLASSE GENÉRICA
+//Um dos princípios da orientação a objetos é re-uso do código, se você precisar de algo que faça exatamente a mesma coisa só que com valores diferentes, você deve reutilizar este código. A classe genérica serve justamente para isso, você pode passar qualquer tipo que desejar e utilizar a mesma estrutura genérica.
+MeuArray<int> arrayInteiro = new MeuArray<int>();
+
+arrayInteiro.AdicionarElementoArray(20);
+
+Console.WriteLine(arrayInteiro[0]);
+
+MeuArray<string> arrayString = new MeuArray<string>();
+
+arrayString.AdicionarElementoArray("Texto");
+
+Console.WriteLine(arrayString[0]);
+
+
+
+
 //Variável dinâmica pode assumir vários tipos independente do valor, muito útil para valores dinâmicos. Porém deve ser usado com cuidado, pois se colocar o tipo errado, pode receber uma exceção.
 
 dynamic variavelDinamica = 4;
